@@ -72,3 +72,27 @@ button:hover {
 #connect a:hover {
     color: #f39c12;
 }
+
+/* Programming Section - Adjust Image Size */
+.lang-icon {
+    width: 60px;  /* Adjust size */
+    height: 60px; /* Keep it proportional */
+    object-fit: contain; /* Ensures image fits well */
+    margin: 10px auto; /* Centers image */
+    background-color: white;  /* Set solid background */
+
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.lang-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Centering text */
+#programming p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
