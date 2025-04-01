@@ -96,3 +96,14 @@ button:hover {
     text-align: center;
     margin-top: 5px;
 }
+/* Remove default link styles */
+a {
+    color: inherit;  /* Inherit color from parent, so no blue link */
+    text-decoration: none;  /* Remove underline */
+}
+
+/* Optional: Add a custom hover effect */
+a:hover {
+    color: #f39c12; /* Change color on hover, or any color you prefer */
+    text-decoration: none;  /* Keep the link without underline on hover */
+}
