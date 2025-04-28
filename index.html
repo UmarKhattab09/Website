@@ -4,76 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="programming.html">Programming Languages</a></li>
-                    <li class="nav-item"><a class="nav-link" href="MachineLearning.html">ML</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html">Connect</a></li>
-                    
-                </ul>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Umar</span></h1>
+            <p class="tagline">Data Science</p>
+            <a href="#projects" class="cta-button">Projects</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Welcome to my Portfolio. Do check out the projects I've worked on.</p>
+                <div class="skills">
+                    <h3>My Skills</h3>
+                    <div class="skill-tags">
+                        <span>HTML/CSS</span>
+                        <span>Python</span>
+                        <span>Java</span>
+                        <span>Machine Learning Libraries</span>
+                       
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-
-
-
-    <section id="about" class="container py-5 fade-in">
-        <h2>About Me</h2>
-        <p>My name is Raja Umar Khattab. I am currently studying Master's in Computer Science at Western Kentucky University. <br>
-            I have completed my undergraduation in Electronics Engineering from NED University of Engineering and Technology <br>
-            I have fallen in love with AI/Data Science and hoping to find a career in it.
-            This is a pretty basic website I've made. Will improve in the future
-        </p>
-    </section>    
-
-    <section id="links" class="container py-5 fade-in">
-         <class="nav-item"><a class="nav-link" href="projects.html"><h3>Check Out My Projects</h3></a>
-   
     </section>
 
-
-   
-     
-    
-                  
-
-              
-    
-
-    <section id="connect" class="container py-5 fade-in -">
-        <h2>Connect</h2>
-        <p>Find me on:</p>
-        <div class="row text-center">
-
-            <div class="col-md-2 col-4">
-                <a href="https://www.linkedin.com/in/umarkhattab/">
-                <img src="images/linkedin.png" alt="linkedin" class="img-fluid lang-icon">
-                <p>Linkedin</p>
-            </a>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="images/unnamed.png" alt="Project 1 " height="300" width="200">
+                <h3>Natural Language Processing</h3>
+                <p>Tokenization,Stemming,Lemmatization,RNN,<br>LSTM-RNN,Transformers,BERT</br></p>
+                <a href="https://github.com/UmarKhattab09/NLP" class="project-link">View Project</a>
             </div>
-            <div class="col-md-2 col-4">
-                <a href="https://github.com/UmarKhattab09">
+            <div class="project-card">
+                <img src="images/Neural_network_example.png" alt="Project 2" height="300" width="200">
+                <h3>Neural Network</h3>
+                <p>Building a Neural Network from Scratch using Python.</p>
+                <a href="https://github.com/UmarKhattab09/NeuralNetwork" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="images/etl.png" alt="Project 3" height="300" width="200">
+                <h3>Data Pipeline</h3>
+                <p>Creating a DataPipeline with Hadoop/PySpark.</p>
+                <a href="https://github.com/UmarKhattab09/DataPipeline" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="images/atsresume.jpeg" alt="Project 1 " height="300" width="200">
+                <h3>Google Gemini Resume Checker</h3>
+                <p>Resume Checker built using Google Gemini API</p>
+                <a href="https://github.com/UmarKhattab09/ATS-RESUME-CHECKER" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="images/HeartDisease.jpg" alt="Project 2" height="300" width="200">
+                <h3>Heart Disease Classification</h3>
+                <p>Machine Learning Project predicting people having Heart Disease ( Binary Classifcation ) </p>
+                <a href="https://github.com/UmarKhattab09/HeartDiseaseClassification" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="images/docker.png" alt="Project 2" height="300" width="200">
+                <h3>Docker's</h3>
+                <p>Basics and implementation of Docker's</p>
+                <a href="https://github.com/UmarKhattab09/Docker" class="project-link">View Project</a>
+            </div>
+        </div>
+    </section>
 
-                <img src="images/github.png" alt="github" class="img-fluid lang-icon">
-                <p>GitHub</p>
-                </a>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>ru.khattab@gmail.com</p>
                 </div>
+                <div class="social-links">
+                    <a href="https://github.com/UmarKhattab09"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/umarkhattab/"><i class="fab fa-linkedin"></i></a>
+                    
+                </div>
+            </div>
+        </div>
     </section>
 
 
+    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer -->
+
 </body>
-</html>
+</html> 
