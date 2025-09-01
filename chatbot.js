@@ -15,7 +15,7 @@ document.getElementById("chatbot-send").onclick = async () => {
   input.value = "";
 
   // Call backend
-  const res = await fetch("/chat", {
+  const res = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: userMessage })
