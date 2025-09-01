@@ -275,3 +275,68 @@ footer {
 .hero-content, .about-content, .project-card, .contact-content {
     animation: fadeIn 1s ease-out;
 } 
+
+
+
+/* Floating button */
+#chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Popup */
+#chatbot-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#chatbot-header {
+  background: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+#chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+#chatbot-input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chatbot-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+}
+
+#chatbot-send {
+  background: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
