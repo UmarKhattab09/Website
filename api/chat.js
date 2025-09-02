@@ -67,6 +67,7 @@ export default async function handler(req, res) {
       TV Show Analyzer AI/NLP, AI Agents for Patients, AI Agent Chatbots, Customer Churn Prediction, 
       PowerBI Dashboard, Data Analyst, DiscordBot, Machine Learning Projects, NLP Projects, Neural Network, 
       Data Pipeline, Google Gemini Resume Checker, Heart Disease Classification, Docker.
+      Always answer in less then 100 words.
 `;
     if (!process.env.GEMINI_API_KEY) {
       return res.status(500).json({ error: "API key not set" });
