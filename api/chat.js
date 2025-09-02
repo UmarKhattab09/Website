@@ -91,8 +91,8 @@ export default async function handler(req, res) {
       }
     );
     const data = await response.json();
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    console.log(reply)
+    const geminireply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    console.log(geminireply)
 
 
     if (!message) {
@@ -100,7 +100,7 @@ export default async function handler(req, res) {
     }
 
     // Just echo back for now
-    return res.status(200).json({ reply: `You said: ${message}` });
+    return res.status(200).json({ reply: `You said: ${geminireply}` });
   } catch (err) {
     console.error("API Error:", err);
     return res.status(500).json({ error: "Internal Server Error" });
