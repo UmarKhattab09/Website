@@ -100,7 +100,7 @@ export default async function handler(req, res) {
     }
 
     // Just echo back for now
-    return res.status(200).json({ reply: `You said: ${geminireply}` });
+    return res.status(200).json({ reply: `${geminireply}` });
   } catch (err) {
     console.error("API Error:", err);
     return res.status(500).json({ error: "Internal Server Error" });
