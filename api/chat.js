@@ -61,6 +61,11 @@ export default async function handler(req, res) {
 
   try {
     const { message } = req.body;
+    if (!process.env.GEMINI_API_KEY) {
+      return res.status(500).json({ error: "API key not set" });
+    }else {
+      console.log("API Key is set");
+    }
 
     if (!message) {
       return res.status(400).json({ error: "Message is required" });
