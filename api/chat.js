@@ -20,23 +20,23 @@
 //       return res.status(500).json({ error: "Server error: API key not set." });
 //     }
 
-//     const response = await fetch(
-//       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-//       {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({
-//           contents: [
-//             {
-//               role: "user",
-//               parts: [
-//                 { text: `You are Umar's personal AI assistant. Use this info: ${portfolioContext} Question: ${message}` }
-//               ]
-//             }
-//           ]
-//         })
-//       }
-//     );
+    // const response = await fetch(
+    //   `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+    //   {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({
+    //       contents: [
+    //         {
+    //           role: "user",
+    //           parts: [
+    //             { text: `You are Umar's personal AI assistant. Use this info: ${portfolioContext} Question: ${message}` }
+    //           ]
+    //         }
+    //       ]
+    //     })
+    //   }
+    // );
 
 //     const data = await response.json();
 
@@ -61,11 +61,37 @@ export default async function handler(req, res) {
 
   try {
     const { message } = req.body;
+    const portfolioContext = `
+      Umar Khattab is a Data Science student. Skills: HTML/CSS, Python, Java, Machine Learning Libraries.
+      Projects: Shopping AI Assistant, Model Context Protocol, RAG Project, WebScraping with LLM FineTuning, 
+      TV Show Analyzer AI/NLP, AI Agents for Patients, AI Agent Chatbots, Customer Churn Prediction, 
+      PowerBI Dashboard, Data Analyst, DiscordBot, Machine Learning Projects, NLP Projects, Neural Network, 
+      Data Pipeline, Google Gemini Resume Checker, Heart Disease Classification, Docker.
+`;
     if (!process.env.GEMINI_API_KEY) {
       return res.status(500).json({ error: "API key not set" });
     }else {
       console.log("API Key is set");
     }
+      const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [
+            {
+              role: "user",
+              parts: [
+                { text: `You are Umar's personal AI assistant. Use this info: ${portfolioContext} Question: ${message}` }
+              ]
+            }
+          ]
+        })
+      }
+    );
+    const data = await response.json();
+    console.log("Gemini API response:", data);
 
     if (!message) {
       return res.status(400).json({ error: "Message is required" });
