@@ -91,8 +91,8 @@ export default async function handler(req, res) {
       }
     );
     const data = await response.json();
-    console.log("Gemini API response:", data);
-    console.log(data.candidates[0].content);
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    console.log(reply)
 
 
     if (!message) {
