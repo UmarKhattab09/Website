@@ -15,7 +15,7 @@ TV Show Analyzer AI/NLP, AI Agents for Patients, AI Agent Chatbots, Customer Chu
 PowerBI Dashboard, Data Analyst, DiscordBot, Machine Learning Projects, NLP Projects, Neural Network, 
 Data Pipeline, Google Gemini Resume Checker, Heart Disease Classification, Docker.
 `;
-
+    console.log("ENV KEY?", process.env.GEMINI_API_KEY ? "Loaded ✅" : "Missing ❌");
     if (!process.env.GEMINI_API_KEY) {
       return res.status(500).json({ error: "Server error: API key not set." });
     }
