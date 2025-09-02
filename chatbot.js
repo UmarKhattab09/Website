@@ -28,29 +28,28 @@ try {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: userMessage })
   });
+  const raw = await res.text();
+    let data;
 
-  let data;
-  try {
-    data = await res.json();
-  } catch (jsonErr) {
-    // If not JSON, get raw text to debug
-    const text = await res.text();
-    throw new Error("Non-JSON response: " + text);
+    try {
+      data = JSON.parse(raw);
+    } catch {
+      throw new Error("Non-JSON response: " + raw);
+    }
+
+    if (!res.ok) {
+      throw new Error(data?.error || "Server error");
+    }
+
+    typingIndicator.remove();
+    messagesDiv.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  } catch (err) {
+    typingIndicator.remove();
+    messagesDiv.innerHTML += `<p><b>Bot:</b> Something went wrong. Try again.</p>`;
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    console.error("Chatbot error:", err.message);
   }
-
-  if (!res.ok) {
-    throw new Error(data?.error || "Server error");
-  }
-
-  typingIndicator.remove();
-  messagesDiv.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-} catch (err) {
-  typingIndicator.remove();
-  messagesDiv.innerHTML += `<p><b>Bot:</b> Something went wrong. Try again.</p>`;
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-  console.error("Chatbot error:", err.message);
-}
 
 };
 
