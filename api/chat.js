@@ -92,6 +92,8 @@ export default async function handler(req, res) {
     );
     const data = await response.json();
     console.log("Gemini API response:", data);
+    console.log(data.candidates[0].content);
+
 
     if (!message) {
       return res.status(400).json({ error: "Message is required" });
