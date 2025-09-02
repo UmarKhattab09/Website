@@ -22,24 +22,36 @@ document.getElementById("chatbot-send").onclick = async () => {
   messagesDiv.appendChild(typingIndicator);
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-  try {
-    // Call Vercel Serverless Function
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: userMessage })
-    });
+try {
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: userMessage })
+  });
 
-    const data = await res.json();
-    typingIndicator.remove(); // remove typing
-    messagesDiv.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-  } catch (err) {
-    typingIndicator.remove();
-    messagesDiv.innerHTML += `<p><b>Bot:</b> Something went wrong. Try again.</p>`;
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    console.error(err);
+  let data;
+  try {
+    data = await res.json();
+  } catch (jsonErr) {
+    // If not JSON, get raw text to debug
+    const text = await res.text();
+    throw new Error("Non-JSON response: " + text);
   }
+
+  if (!res.ok) {
+    throw new Error(data?.error || "Server error");
+  }
+
+  typingIndicator.remove();
+  messagesDiv.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+} catch (err) {
+  typingIndicator.remove();
+  messagesDiv.innerHTML += `<p><b>Bot:</b> Something went wrong. Try again.</p>`;
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  console.error("Chatbot error:", err.message);
+}
+
 };
 
 // Optional: Send message on Enter key
