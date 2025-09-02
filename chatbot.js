@@ -1,4 +1,8 @@
 // Toggle Chatbot Popup
+document.getElementById("hero-chatbot").onclick = () => {
+  const popup = document.getElementById("chatbot-popup");
+  popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+};
 document.getElementById("chatbot-button").onclick = () => {
   const popup = document.getElementById("chatbot-popup");
   popup.style.display = popup.style.display === "flex" ? "none" : "flex";
