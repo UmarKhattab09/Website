@@ -340,3 +340,29 @@ footer {
   padding: 10px 15px;
   cursor: pointer;
 }
+.presentation {
+  padding: 50px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.presentation h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.presentation-container {
+  display: flex;
+  justify-content: center;  /* centers horizontally */
+  align-items: center;      /* centers vertically if there's extra height */
+}
+
+.presentation iframe {
+  max-width: 100%;
+  width: 960px;   /* keeps slide size */
+  height: 569px;  /* standard 16:9 aspect ratio */
+  border: none;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
