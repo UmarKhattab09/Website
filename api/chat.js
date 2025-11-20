@@ -43,12 +43,7 @@ export default async function handler(req, res) {
     if (data.error) {
       return res.status(500).json({ error: data.error.message });
     }
-    let geminireply =
-      candidate?.content?.parts?.[0]?.text ||            // format A
-      candidate?.content?.[0]?.parts?.[0]?.text ||       // format B
-      candidate?.content?.[0]?.text ||                   // fallback
-      "Sorry, I couldn’t generate a response.";
-    console.log(geminireply)
+    let geminireply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
 
     if (!message) {
